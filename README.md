@@ -15,16 +15,16 @@ simpleSketch is a piece of software written in [Processing](https://processing.o
 
 ## Controls
 
-Space Bar - Clear canvas.
-R - Change line color to red.
-O - Change line color to orange.
-Y - Change line color to yellow.
-G - Change line color to green.
-B - Change line color to blue.
-P - Change line color to purple.
-L - Change line color to black.
-Up Arrow - Increase line thickness.
-Down Arrow - Decrease line thickness.
+- Space Bar - Clear canvas.
+- R - Change line color to red.
+- O - Change line color to orange.
+- Y - Change line color to yellow.
+- G - Change line color to green.
+- B - Change line color to blue.
+- P - Change line color to purple.
+- L - Change line color to black.
+- Up Arrow - Increase line thickness.
+- Down Arrow - Decrease line thickness.
 
 ## Questions and Issues
 
