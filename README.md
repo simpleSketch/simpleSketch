@@ -13,6 +13,19 @@ simpleSketch is a piece of software written in [Processing](https://processing.o
 3) Download Processing 3 at [this website](https://processing.org/download/).
 4) Open the 'simpleSketch.pde' file and run it in the Processing IDE.
 
+## Controls
+
+Space Bar - Clear canvas.
+R - Change line color to red.
+O - Change line color to orange.
+Y - Change line color to yellow.
+G - Change line color to green.
+B - Change line color to blue.
+P - Change line color to purple.
+L - Change line color to black.
+Up Arrow - Increase line thickness.
+Down Arrow - Decrease line thickness.
+
 ## Questions and Issues
 
 Questions and issues should be asked/reported in the 'Issues' tab.
