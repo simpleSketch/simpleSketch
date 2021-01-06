@@ -23,6 +23,7 @@ simpleSketch is a piece of software written in [Processing](https://processing.o
 - B - Change line color to blue.
 - P - Change line color to purple.
 - L - Change line color to black.
+- E - Change line color to white/change drawing tool to eraser.
 - Up Arrow - Increase line thickness.
 - Down Arrow - Decrease line thickness.
 - A - Increase line thickness by eight times the normal increment value.
