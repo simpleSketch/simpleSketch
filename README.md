@@ -25,6 +25,8 @@ simpleSketch is a piece of software written in [Processing](https://processing.o
 - L - Change line color to black.
 - Up Arrow - Increase line thickness.
 - Down Arrow - Decrease line thickness.
+- A - Increase line thickness by eight times the normal increment value.
+- Z - Decrease line thickness by eight times the normal increment value.
 
 ## Questions and Issues
 
