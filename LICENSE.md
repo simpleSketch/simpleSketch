@@ -1,6 +1,6 @@
 # The Delta License v1
 
-(c) 2021 waitblock
+(c) (Year) (Copyright Holder)
 
 ## Definitions
 
@@ -36,4 +36,4 @@
 
 ### Disclaimer
 ---
-waitblock is not a party to this license. Notwithstanding, waitblock may choose to apply this license to Material and in those cases will be considered the Licensor. The text of this license is under the [MIT License]
+waitblock is not a party to this license. Notwithstanding, waitblock may choose to apply this license to Material and in those cases will be considered the Licensor. The text of this license is under the [MIT License](https://opensource.org/licenses/MIT). For the avoidance of doubt, this paragraph does not form part of the license.
