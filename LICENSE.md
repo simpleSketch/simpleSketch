@@ -1,6 +1,6 @@
 # The Delta License v1
 
-(c) (Year) (Copyright Holder)
+(c) 2021 waitblock
 
 ## Definitions
 
