@@ -2,10 +2,10 @@ int color_selection = 0;
 float thickness = 1.0;
 float increment = 0.5;
 float min_thick = 0.0;
-float max_thick = 4.0;
+float max_thick = 21.0;
 
 void setup() {
-  size(640, 360);
+  size(1060, 600);
   background(255);
 }
 
@@ -32,6 +32,9 @@ void draw() {
   if (color_selection == 6){
     stroke(166, 0, 255);
   }
+  if (color_selection == 7){
+    stroke(255);
+  }
   if (mousePressed == true) {
     line(mouseX, mouseY, pmouseX, pmouseY);
   }
@@ -48,8 +51,11 @@ G = GREEN
 B = BLUE
 P = PURPLE
 L = BLACK
-UP = HIGHER THICKNESS
-DOWN = LOWER THICKNESS
+E = ERASER/WHITE
+UP = HIGHER THICKNESS BY NORMAL INCREMENT
+DOWN = LOWER THICKNESS BY NORMAL INCREMENT
+A = HIGHER THICKNESS BY 8 TIMES THE NORMAL INCREMENT
+Z = LOWER THICKNESS BY 8 TIMES THE NORMAL INCREMENT
 
 COLORS BY NUM:
 0 = BLACK
@@ -59,6 +65,7 @@ COLORS BY NUM:
 4 = GREEN
 5 = BLUE
 6 = PURPLE
+7 = ERASER/WHITE
 
 */
 
@@ -96,6 +103,10 @@ void keyPressed(){
     color_selection = 6;
     println("Color is now purple");
   }
+  if(key == 'E' || key == 'e'){
+    color_selection = 7;
+    println("Color is now white/eraser");
+  }
   if(keyCode == UP){
     if (thickness < max_thick){
       thickness += increment;
@@ -106,6 +117,22 @@ void keyPressed(){
     if (thickness > min_thick){
       thickness -= increment;
       println("Thickness now ", thickness);
+    }
+  }
+  if(key == 'A' || key == 'a'){
+    if (thickness < max_thick){
+      if (thickness <= max_thick - 4){
+        thickness += (8*increment);
+        println("Thickness now ", thickness);
+      }
+    }
+  }
+  if(key == 'Z' || key == 'z'){
+    if (thickness > min_thick){
+      if (thickness >= min_thick + 4){
+        thickness -= (8*increment);
+        println("Thickness now ", thickness);
+      }
     }
   }
 }
