@@ -8,7 +8,7 @@ simpleSketch is a piece of software written in [Processing](https://processing.o
 
 ## Installing
 
-1) Download this repository, or whatever version of simpleSketch you would like to use from the 'Releases' tab.
+1) Download this repository, or whatever version of simpleSketch you would like to use from the [Releases](https://github.com/waitblock/simpleSketch/releases) tab.
 2) Unzip the files.
 3) Download the Processing 3 IDE at [the Processing website](https://processing.org/download/).
 4) Open the 'simpleSketch.pde' file and run it in the Processing IDE.
