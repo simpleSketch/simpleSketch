@@ -1,8 +1,10 @@
 int color_selection = 0;
-float thickness = 1.0;
-float increment = 0.5;
-float min_thick = 0.0;
-float max_thick = 21.0;
+int cap_selection = 0;
+
+float thickness = 1.0; //default thickness (0 is minimum or the program will crash)
+float increment = 0.5; //the increment by which the thickness changes by
+float min_thick = 0.0; //the minimum thickness (0 is the lowest it can go or the program will crash)
+float max_thick = 21.0; //the maximum thickness
 
 void setup() {
   size(1060, 600);
@@ -10,32 +12,57 @@ void setup() {
 }
 
 void draw() {
+  //thickness
   strokeWeight(thickness);
-  if (color_selection == 0){
+  
+  //color selection
+  if(color_selection == 0){
+    colorMode(RGB);
     stroke(0);
   }
-  if (color_selection == 1){
+  if(color_selection == 1){
+    colorMode(RGB);
     stroke(255,0,0);
   }
-  if (color_selection == 2){
+  if(color_selection == 2){
+    colorMode(RGB);
     stroke(255, 166, 0);
   }
-  if (color_selection == 3){
+  if(color_selection == 3){
+    colorMode(RGB);
     stroke(255, 255, 0);
   }
-  if (color_selection == 4){
+  if(color_selection == 4){
+    colorMode(RGB);
     stroke(0, 255, 0);
   }
-  if (color_selection == 5){
+  if(color_selection == 5){
+    colorMode(RGB);
     stroke(0, 0, 255);
   }
-  if (color_selection == 6){
+  if(color_selection == 6){
+    colorMode(RGB);
     stroke(166, 0, 255);
   }
-  if (color_selection == 7){
+  if(color_selection == 7){
+    colorMode(HSB);
+    stroke(frameCount % 256, 255, 255);
+  }
+  if(color_selection == 8){
+    colorMode(RGB);
     stroke(255);
   }
-  if (mousePressed == true) {
+  
+  //cap selection
+  if(cap_selection == 0){
+    strokeCap(ROUND);
+  }
+  if(cap_selection == 1){
+    strokeCap(PROJECT);
+  }
+  
+  //draw the line
+  if(mousePressed == true) {
     line(mouseX, mouseY, pmouseX, pmouseY);
   }
 }
@@ -51,11 +78,13 @@ G = GREEN
 B = BLUE
 P = PURPLE
 L = BLACK
+M = RAINBOW (MULTI-COLOR)
 E = ERASER/WHITE
 UP = HIGHER THICKNESS BY NORMAL INCREMENT
 DOWN = LOWER THICKNESS BY NORMAL INCREMENT
 A = HIGHER THICKNESS BY 8 TIMES THE NORMAL INCREMENT
 Z = LOWER THICKNESS BY 8 TIMES THE NORMAL INCREMENT
+S = CHANGE CAP
 
 COLORS BY NUM:
 0 = BLACK
@@ -65,8 +94,12 @@ COLORS BY NUM:
 4 = GREEN
 5 = BLUE
 6 = PURPLE
-7 = ERASER/WHITE
+7 = RAINBOW
+8 = ERASER/WHITE
 
+STROKE CAP BY NUM:
+0 = ROUND (DEFAULT)
+1 = SQUARE (PROJECT CAP IN P3)
 */
 
 
@@ -103,8 +136,12 @@ void keyPressed(){
     color_selection = 6;
     println("Color is now purple");
   }
-  if(key == 'E' || key == 'e'){
+  if(key == 'M' || key == 'm'){
     color_selection = 7;
+    println("Color is now rainbow/multi-color");
+  }
+  if(key == 'E' || key == 'e'){
+    color_selection = 8;
     println("Color is now white/eraser");
   }
   if(keyCode == UP){
@@ -121,7 +158,7 @@ void keyPressed(){
   }
   if(key == 'A' || key == 'a'){
     if (thickness < max_thick){
-      if (thickness <= max_thick - 4){
+      if (thickness <= max_thick - (increment*8)){
         thickness += (8*increment);
         println("Thickness now ", thickness);
       }
@@ -129,10 +166,20 @@ void keyPressed(){
   }
   if(key == 'Z' || key == 'z'){
     if (thickness > min_thick){
-      if (thickness >= min_thick + 4){
+      if (thickness >= min_thick + (increment*8)){
         thickness -= (8*increment);
         println("Thickness now ", thickness);
       }
+    }
+  }
+  if(key == 'S' || key == 's'){
+    if(cap_selection == 0){
+      cap_selection = 1;
+      println("Cap is now square");
+    }
+    else{
+      cap_selection = 0;
+      println("Cap is now round");
     }
   }
 }
