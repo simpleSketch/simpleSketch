@@ -2,6 +2,8 @@
   <img src="https://github.com/waitblock/simpleSketch/blob/main/images/simplesketch_logo.png" alt="logo" style="width: 100%; height: auto;">
 </p>
 
+![build-test](https://waitblock.github.io/build-tester/webhook.svg)
+
 # Welcome to simpleSketch v1.0.2!
 
 simpleSketch is a piece of software written in [Processing](https://processing.org/) that allows you to draw or sketch. Currently, it is in a very minimalistic state, but there are many features planned for future releases.
