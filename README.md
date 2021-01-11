@@ -2,7 +2,7 @@
   <img src="https://github.com/waitblock/simpleSketch/blob/main/images/simplesketch_logo.png" alt="logo" style="width: 100%; height: auto;">
 </p>
 
-# Welcome to simpleSketch v1.0.1!
+# Welcome to simpleSketch v1.0.2!
 
 simpleSketch is a piece of software written in [Processing](https://processing.org/) that allows you to draw or sketch. Currently, it is in a very minimalistic state, but there are many features planned for future releases.
 
@@ -23,11 +23,13 @@ simpleSketch is a piece of software written in [Processing](https://processing.o
 - B - Change line color to blue.
 - P - Change line color to purple.
 - L - Change line color to black.
+- M - Change line color to rainbow / multi-color.
 - E - Change line color to white / change drawing tool to eraser.
 - Up Arrow - Increase line thickness.
 - Down Arrow - Decrease line thickness.
 - A - Increase line thickness by eight times the normal increment value.
 - Z - Decrease line thickness by eight times the normal increment value.
+- S - Change the marker's cap.
 
 ## Questions and Issues
 
