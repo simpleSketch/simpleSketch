@@ -1,3 +1,8 @@
+## v1.0.2
+
+- Added a square marker cap.
+- Added a rainbow marker color.
+
 ## v1.0.1
 
 - Changed default canvas size to 1060x600.
