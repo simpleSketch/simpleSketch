@@ -6,9 +6,24 @@ float increment = 0.5; //the increment by which the thickness changes by
 float min_thick = 0.0; //the minimum thickness (0 is the lowest it can go or the program will crash)
 float max_thick = 21.0; //the maximum thickness
 
+BufferedReader reader;
+String modifier;
+int nameModifier;
+
 void setup() {
   size(1060, 600);
   background(255);
+  reader = createReader("name_modifier.txt");
+  try {
+    modifier = reader.readLine();
+    println("Current modifier: "+modifier);
+    nameModifier = int(modifier);
+  }
+  catch(IOException e){
+    e.printStackTrace();
+    exit();
+  }
+  
 }
 
 void draw() {
@@ -85,6 +100,7 @@ DOWN = LOWER THICKNESS BY NORMAL INCREMENT
 A = HIGHER THICKNESS BY 8 TIMES THE NORMAL INCREMENT
 Z = LOWER THICKNESS BY 8 TIMES THE NORMAL INCREMENT
 S = CHANGE CAP
+CONTROL = SAVE CURRENT SKETCH
 
 COLORS BY NUM:
 0 = BLACK
@@ -182,4 +198,17 @@ void keyPressed(){
       println("Cap is now round");
     }
   }
+  if(keyCode == CONTROL){
+    PImage sketch = get();
+    sketch.save("sketch"+str(nameModifier)+".jpg");
+    println("Saved sketch"+str(nameModifier));
+    nameModifier++;
+  }
+}
+
+void dispose(){
+  println("Stopping...");
+  String stringName = str(nameModifier);
+  String[] toSave = {stringName};
+  saveStrings("name_modifier.txt", toSave);
 }
