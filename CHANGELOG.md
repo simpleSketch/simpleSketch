@@ -1,3 +1,7 @@
+## v1.1.0
+
+- The canvas is now able to be saved into a JPEG image file.
+
 ## v1.0.2
 
 - Added a square marker cap.
