@@ -1,3 +1,8 @@
+## v1.1.1
+
+- Added shapes that can be directly inserted onto the canvas.
+- The controls have been changed so that only one key needs to be pressed when switching between colors/shapes.
+
 ## v1.1.0
 
 - The canvas is now able to be saved into a JPEG image file.
