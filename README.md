@@ -6,7 +6,7 @@
 
 # Welcome to simpleSketch v1.1.1!
 
-simpleSketch is a piece of software written in [Processing](https://processing.org/) that allows you to draw or sketch. Currently, it is in a very minimalistic state, but there are many features planned for future releases.
+simpleSketch is a piece of software written in [Processing](https://processing.org/) that allows you to draw or sketch.
 
 ## Installing
 
