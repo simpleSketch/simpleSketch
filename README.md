@@ -4,7 +4,7 @@
 
 ![build-test](https://camo.githubusercontent.com/c2fa97ff86a7570b335509ccb244cebdf6cd78018aae8928ea5099f57ac572e8/68747470733a2f2f6170692e6369727275732d63692e636f6d2f6769746875622f6375726c2f6375726c2e7376673f6272616e63683d6d6173746572)
 
-# Welcome to simpleSketch v1.1.0!
+# Welcome to simpleSketch v1.1.1!
 
 simpleSketch is a piece of software written in [Processing](https://processing.org/) that allows you to draw or sketch. Currently, it is in a very minimalistic state, but there are many features planned for future releases.
 
