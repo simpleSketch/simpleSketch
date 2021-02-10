@@ -5,9 +5,17 @@ int shape_selection = 0;
 int tool_selection = 0;
 
 float thickness = 1.0; //default thickness (0 is minimum or the program will crash)
-float increment = 0.5; //the increment by which the thickness changes by
-float min_thick = 0.0; //the minimum thickness (0 is the lowest it can go or the program will crash)
-float max_thick = 21.0; //the maximum thickness
+final float increment = 0.5; //the increment by which the thickness changes by
+final float min_thick = 0.0; //the minimum thickness (0 is the lowest it can go or the program will crash)
+final float max_thick = 21.0; //the maximum thickness
+
+final int spray_speed = 50;
+final int spray_width = 30;
+float spray_radx;
+float spray_rady;
+float spray_angle;
+float spray_x;
+float spray_y;
 
 BufferedReader reader;
 String modifier;
@@ -40,46 +48,91 @@ void setup() {
 }
 
 void draw() {
-  if(tool_selection == 0){
-    //thickness
-    strokeWeight(thickness);
+  if(tool_selection == 0 || tool_selection == 2 || tool_selection == 3){
+    if(tool_selection == 0 || tool_selection == 3){
+      //thickness
+      strokeWeight(thickness);
+      
+      //color selection
+      if(color_selection == 0){
+        colorMode(RGB);
+        stroke(0);
+      }
+      if(color_selection == 1){
+        colorMode(RGB);
+        stroke(255,0,0);
+      }
+      if(color_selection == 2){
+        colorMode(RGB);
+        stroke(255, 166, 0);
+      }
+      if(color_selection == 3){
+        colorMode(RGB);
+        stroke(255, 255, 0);
+      }
+      if(color_selection == 4){
+        colorMode(RGB);
+        stroke(0, 255, 0);
+      }
+      if(color_selection == 5){
+        colorMode(RGB);
+        stroke(0, 0, 255);
+      }
+      if(color_selection == 6){
+        colorMode(RGB);
+        stroke(166, 0, 255);
+      }
+      if(color_selection == 7){
+        colorMode(HSB);
+        stroke(frameCount % 256, 255, 255);
+      }
+      if(color_selection == 8){
+        colorMode(RGB);
+        stroke(255);
+      }
+    }
     
-    //color selection
-    if(color_selection == 0){
-      colorMode(RGB);
-      stroke(0);
-    }
-    if(color_selection == 1){
-      colorMode(RGB);
-      stroke(255,0,0);
-    }
-    if(color_selection == 2){
-      colorMode(RGB);
-      stroke(255, 166, 0);
-    }
-    if(color_selection == 3){
-      colorMode(RGB);
-      stroke(255, 255, 0);
-    }
-    if(color_selection == 4){
-      colorMode(RGB);
-      stroke(0, 255, 0);
-    }
-    if(color_selection == 5){
-      colorMode(RGB);
-      stroke(0, 0, 255);
-    }
-    if(color_selection == 6){
-      colorMode(RGB);
-      stroke(166, 0, 255);
-    }
-    if(color_selection == 7){
-      colorMode(HSB);
-      stroke(frameCount % 256, 255, 255);
-    }
-    if(color_selection == 8){
-      colorMode(RGB);
-      stroke(255);
+    if(tool_selection == 2){
+      //thickness
+      strokeWeight(thickness);
+      
+      //color selection
+      if(color_selection == 0){
+        colorMode(RGB);
+        stroke(0, 50.0);
+      }
+      if(color_selection == 1){
+        colorMode(RGB);
+        stroke(255,0,0, 50.0);
+      }
+      if(color_selection == 2){
+        colorMode(RGB);
+        stroke(255, 166, 0, 50.0);
+      }
+      if(color_selection == 3){
+        colorMode(RGB);
+        stroke(255, 255, 0, 50.0);
+      }
+      if(color_selection == 4){
+        colorMode(RGB);
+        stroke(0, 255, 0, 50.0);
+      }
+      if(color_selection == 5){
+        colorMode(RGB);
+        stroke(0, 0, 255, 50.0);
+      }
+      if(color_selection == 6){
+        colorMode(RGB);
+        stroke(166, 0, 255, 50.0);
+      }
+      if(color_selection == 7){
+        colorMode(HSB);
+        stroke(frameCount % 256, 255, 255, 50.0);
+      }
+      if(color_selection == 8){
+        colorMode(RGB);
+        stroke(255);
+      }
     }
     
     //cap selection
@@ -90,9 +143,23 @@ void draw() {
       strokeCap(PROJECT);
     }
     
-    //draw the line
-    if(mousePressed == true) {
-      line(mouseX, mouseY, pmouseX, pmouseY);
+    if(tool_selection == 0 || tool_selection == 2){
+      //draw the line
+      if(mousePressed) {
+        line(mouseX, mouseY, pmouseX, pmouseY);
+      }
+    }
+    if(tool_selection == 3){
+      if(mousePressed){
+        for(int i = 0; i<spray_speed; i++){
+          spray_radx = random(spray_width);
+          spray_rady = random(spray_width);
+          spray_angle = random(360);
+          spray_x = (spray_radx*cos(radians(spray_angle)))+mouseX;
+          spray_y = (spray_rady*cos(radians(spray_angle)))+mouseY;
+          point(spray_x, spray_y);
+        }
+      }
     }
   }
   if(tool_selection == 1){
@@ -152,6 +219,8 @@ SHAPES BY NUM:
 TOOLS BY NUM:
 0 = MARKER
 1 = SHAPES
+2 = HIGHLIGHTER
+3 = SPRAY BRUSH
 */
 
 
@@ -161,12 +230,14 @@ void keyPressed(){
     println("Screen cleared");
   }
   if(key == 'B' || key == 'b'){
-    tool_selection = 0;
+    if(tool_selection == 1){
+      tool_selection = 0;
+    }
     color_selection = 0;
     println("Color is now black");
   }
   if(key == 'C' || key == 'c'){
-    if(tool_selection == 0){
+    if(tool_selection == 0 || tool_selection == 2 || tool_selection == 3){
       if(color_selection == 8){
         color_selection = 0;
         println("Color is now black");
@@ -219,12 +290,14 @@ void keyPressed(){
     }
   }
   if(key == 'E' || key == 'e'){
-    tool_selection = 0;
+    if(tool_selection == 1){
+      tool_selection = 0;
+    }
     color_selection = 8;
     println("Color is now white/eraser");
   }
   if(keyCode == UP){
-    if(tool_selection == 0){
+    if(tool_selection == 0 || tool_selection == 2){
       if (thickness < max_thick){
         thickness += increment;
         println("Thickness now ", thickness);
@@ -232,7 +305,7 @@ void keyPressed(){
     }
   }
   if(keyCode == DOWN){
-    if(tool_selection == 0){
+    if(tool_selection == 0 || tool_selection == 2){
       if (thickness > min_thick){
         thickness -= increment;
         println("Thickness now ", thickness);
@@ -240,7 +313,7 @@ void keyPressed(){
     }
   }
   if(key == 'A' || key == 'a'){
-    if(tool_selection == 0){
+    if(tool_selection == 0 || tool_selection == 2){
       if (thickness < max_thick){
         if (thickness <= max_thick - (increment*8)){
           thickness += (8*increment);
@@ -250,7 +323,7 @@ void keyPressed(){
     }
   }
   if(key == 'Z' || key == 'z'){
-    if(tool_selection == 0){
+    if(tool_selection == 0 || tool_selection == 2){
       if (thickness > min_thick){
         if (thickness >= min_thick + (increment*8)){
           thickness -= (8*increment);
@@ -260,7 +333,7 @@ void keyPressed(){
     }
   }
   if(key == 'S' || key == 's'){
-    if(tool_selection == 0){
+    if(tool_selection == 0 || tool_selection == 2){
       if(cap_selection == 0){
         cap_selection = 1;
         println("Cap is now square");
@@ -272,16 +345,20 @@ void keyPressed(){
     }
   }
   if(key == 'T' || key == 't'){
-    while(true){
-      if(tool_selection == 0){
-        tool_selection = 1;
-        println("Tool is now shapes");
-        break;
-      }
+    if(tool_selection == 3){
+      tool_selection = 0;
+      println("Tool is now marker");
+    }
+    else{
+      tool_selection++;
       if(tool_selection == 1){
-        tool_selection = 0;
-        println("Tool is now marker");
-        break;
+        println("Tool is now shapes");
+      }
+      if(tool_selection == 2){
+        println("Tool is now highlighter");
+      }
+      if(tool_selection == 3){
+        println("Tool is now spray brush");
       }
     }
   }
