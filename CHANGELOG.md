@@ -1,3 +1,8 @@
+## v1.1.2
+
+- Added a highlighter tool.
+- Added a spray brush tool.
+
 ## v1.1.1
 
 - Added shapes that can be directly inserted onto the canvas.
