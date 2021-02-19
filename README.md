@@ -2,7 +2,7 @@
   <img src="https://github.com/waitblock/simpleSketch/blob/main/images/simplesketch_logo.png" alt="logo" style="width: 100%; height: auto;">
 </p>
 
-# Welcome to simpleSketch v1.1.2!
+# Welcome to simpleSketch v1.1.3!
 
 simpleSketch is a piece of software written in [Processing](https://processing.org/) that allows you to draw or sketch.
 
