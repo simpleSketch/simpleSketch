@@ -1,3 +1,9 @@
+## v1.1.3
+
+- Added a stroke brush (paint brush) tool.
+- Added a loading screen when loading images.
+- Added more shapes.
+
 ## v1.1.2
 
 - Added a highlighter tool.
