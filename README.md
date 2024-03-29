@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/waitblock/simpleSketch/blob/main/images/simplesketch_logo.png" alt="logo" style="width: 400; height: auto;">
+  <img src="https://github.com/waitblock/simpleSketch/blob/main/images/simplesketch_logo.png" alt="logo" width=300 height=auto>
 </p>
 
 # Welcome to simpleSketch v1.1.3!
